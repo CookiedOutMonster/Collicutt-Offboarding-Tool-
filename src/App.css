@@ -1,38 +1,51 @@
-.App {
-  text-align: center;
+@import url('http://fonts.cdnfonts.com/css/avenir');
+/*ab2f3a*/
+:root{ 
+    font-family: 'Avenir', sans-serif;
+    --color_primary: white;
+    --color_secondary: #017ec1;
+    --color_selected: #0D6EFD;
+    --text_primary: black; 
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.overlay{ 
+    background: var(--color_secondary);
+    position: fixed;
+    display:flex;
+    flex-direction: column;
+    height:100%;
+    width:100%;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    top: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.overlay_layer{
+    background:var(--color_primary);
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    height:85%;
+    width:98%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    top: 0;
+
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.selected_name{
+    background-color: var(--color_selected);
 }
 
-.App-link {
-  color: #61dafb;
+.selected_name h2{ 
+    color: white;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.selected_name p{ 
+    color: white; 
 }

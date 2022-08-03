@@ -1,0 +1,32 @@
+"..." operator. Called the spread operator. 
+
+It takes apart the components in the array 
+
+const fuckFace = ["Cunt", "Ass", "Cheeseburger"];
+
+console.log(...fuckFace);
+
+gives us the output: 
+
+cunt, ass, cheeseburger 
+
+And not an array object 
+
+Take this for example, 
+
+var nums = [1, 2, 3]
+var nums2 = [nums, 5, 6]
+
+console.log(nums2) 
+
+returns [1,2,3], 5, 6
+
+But if we do 
+
+var nums2 = [...nums, 5, 6]
+
+console.log(nums2)
+
+we get 
+
+1, 2, 3, 4, 5, 6 :) 
