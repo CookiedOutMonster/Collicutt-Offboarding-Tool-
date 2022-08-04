@@ -2,6 +2,7 @@ import React from "react";
 import SideBar from "../components/SideBar/SideBar";
 import InfoContainer from "../components/InfoContainer/InfoContainer";
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 const OffBoardList = () => {
   //JSON dummy state
@@ -54,19 +55,24 @@ const OffBoardList = () => {
       )
     );
   }
-
   //select offboard
   function selectOffboardID(id) {
     setSelected(id);
   }
+
   return (
-    <>
+    <motion.div
+      className={"OffBoardList"}
+      inital={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
       <SideBar
         offBoardNames={offBoardNames}
         selectOffBoard={selectOffboardID}
       />
       <InfoContainer offBoardNames={offBoardNames} />
-    </>
+    </motion.div>
   );
 };
 

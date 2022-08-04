@@ -1,11 +1,12 @@
 import { NavBar, NavItems_left, NavItems_link } from "./Navbar.styles";
+import img1 from "../../Images/collicutt-energy.png";
 
 //rafce
-const Navbar = (props) => {
+const Navbar = () => {
   return (
     <NavBar>
       <NavItems_left>
-        <img src={props.logo} alt="Collicutt Energy" to="/" />
+        <img src={img1} alt="Collicutt Energy" to="/" />
       </NavItems_left>
       <NavItems_link to="/">
         <h2>Offboard List</h2>

@@ -9,7 +9,7 @@ export const MainContainer = styled.div`
   flex-direction: row;
 `;
 
-export const NameDiv = styled.div`
+export const NameDiv = styled.section`
   /* border: 2px solid green; */
   position: fixed;
   width: 68.3%;
