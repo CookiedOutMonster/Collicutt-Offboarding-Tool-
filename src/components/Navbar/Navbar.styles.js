@@ -11,7 +11,7 @@ import { NavLink as Link } from "react-router-dom";
 //So this seems like a way I can export css elements as
 //JSX objects
 
-export const NavBar = styled.div`
+export const NavBar = styled.nav`
   background: white;
   height: 11%;
   display: flex;

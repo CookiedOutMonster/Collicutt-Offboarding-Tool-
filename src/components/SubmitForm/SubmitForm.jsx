@@ -1,24 +1,28 @@
 import { Container, OffBoardForm } from "./SubmitForm.styles";
-//welcome to div hell
-export const SubmitForm = () => {
+import FirstHalf from "./FirstHalf";
+import SecondHalf from "./SecondHalf";
+import { useState } from "react";
+
+const SubmitForm = ({ handleChange, handleSubmit, newOffBoard, defCon }) => {
+  const [pageNumber, setPageNumber] = useState(1);
   return (
     <Container>
       <h1> New Offhigher </h1>
-      <form>
+      <form onSubmit={handleSubmit}>
         <div>
-          <label>Name:</label>
-          <input type="text" />
-        </div>
-        <div>
-          <label>Urgency:</label>
-          <input type="text" />
-        </div>
-        <div>
-          <label>Tasks:</label>
-          <input type="text" />
-        </div>
-        <div>
-          <input type="submit"></input>
+          {pageNumber === 1 ? (
+            <FirstHalf
+              handleChange={handleChange}
+              newOffBoard={newOffBoard}
+              setPageNumber={setPageNumber}
+            />
+          ) : (
+            <SecondHalf
+              setPageNumber={setPageNumber}
+              newOffBoard={newOffBoard}
+              defCon={defCon}
+            />
+          )}
         </div>
       </form>
     </Container>

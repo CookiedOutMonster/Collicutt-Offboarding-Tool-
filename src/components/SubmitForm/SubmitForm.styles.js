@@ -8,12 +8,7 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: center;
 
-  div {
-    width: 100%;
-    height: 30%;
-    margin-top: 1em;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+  h1 {
+    margin-top: 2.5em;
   }
 `;
