@@ -5,18 +5,36 @@ const SecondHalf = ({ setPageNumber, newOffBoard, defCon }) => {
     setPageNumber(1);
   }
 
-  const number = newOffBoard.urgency;
-  const whichDefCon = "defCon" + number;
-  const selectedDefCon = defCon.whichDefCon;
+  function whichDefCon() {
+    const number = newOffBoard.urgency;
+    let selectedDefCon;
+    switch (number) {
+      case "1":
+        selectedDefCon = defCon.defCon1;
+        break;
+      case "2":
+        selectedDefCon = defCon.defCon2;
+        break;
+      case "3":
+        selectedDefCon = defCon.defCon3;
+        break;
+    }
+    return selectedDefCon;
+  }
 
-  console.log(selectedDefCon);
+  //whichDefCon();
 
-  //console.log(defCon[defCon2]);
+  const ohmy = ["oh", "my", "god"];
+
+  console.log(whichDefCon());
 
   return (
     <FormStyles>
       <div>
         <h3>Tasks: Urgency {newOffBoard.urgency} </h3>
+      </div>
+      <div>
+        <h3></h3>
       </div>
       <div>
         <button onClick={changePage}>Prev </button>

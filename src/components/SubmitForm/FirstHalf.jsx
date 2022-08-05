@@ -4,14 +4,7 @@ import { FormStyles } from "./Halves.styles";
 const FirstHalf = ({ handleChange, newOffBoard, setPageNumber }) => {
   let printError = false;
   function changePage() {
-    if (newOffBoard.name !== " " && newOffBoard.urgency !== " ") {
-      console.log(
-        "This worked " + newOffBoard.name + " " + newOffBoard.urgency
-      );
-      setPageNumber(2);
-    } else {
-      printError = true;
-    }
+    setPageNumber(2);
   }
 
   return (
