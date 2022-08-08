@@ -9,22 +9,28 @@ const NewOffBoard = () => {
     urgency: " ",
   });
 
-  const [defCon, setDefCon] = useState({
-    defCon1: {
-      it: "Cancel email account",
-      hr: "Cancel credit cards",
+  const [defCon, setDefCon] = useState([
+    {
+      id: 1,
+      it: ["Deactivate Versago", "forward emails", "decative email address"],
+      hr: ["Cancel credit card"],
     },
-    defCon2: {
-      it: "Jibber jabber wagger",
-      hr: "Wibber wabber",
+    {
+      id: 2,
+      it: [
+        "Deactivate Versago",
+        "forward emails",
+        "decative email address",
+        "Cancel login",
+      ],
+      hr: ["Cancel credit card", "Take off payroll"],
     },
-    defCon3: {
-      it: "AHHH",
-      hr: "sd;ljgdfgksdfg",
-      it: "EGADS !",
-      safety: "ASD@",
+    {
+      id: 3,
+      it: ["Scorch the earth"],
+      hr: ["Scorch the earth"],
     },
-  });
+  ]);
 
   const handleChange = (e) => {
     //So the issue is what I expected, you must spread accross the previous
@@ -39,21 +45,15 @@ const NewOffBoard = () => {
   };
 
   return (
-    <motion.div
-      inital={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-    >
-      <Container>
-        <SubmitForm
-          newOffBoard={newOffBoard}
-          setNewOffBoard={setNewOffBoard}
-          handleChange={handleChange}
-          handleSubmit={handleSubmit}
-          defCon={defCon}
-        />
-      </Container>
-    </motion.div>
+    <Container>
+      <SubmitForm
+        newOffBoard={newOffBoard}
+        setNewOffBoard={setNewOffBoard}
+        handleChange={handleChange}
+        handleSubmit={handleSubmit}
+        defCon={defCon}
+      />
+    </Container>
   );
 };
 

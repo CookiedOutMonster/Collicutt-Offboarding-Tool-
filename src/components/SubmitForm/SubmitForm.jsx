@@ -5,6 +5,7 @@ import { useState } from "react";
 
 const SubmitForm = ({ handleChange, handleSubmit, newOffBoard, defCon }) => {
   const [pageNumber, setPageNumber] = useState(1);
+
   return (
     <Container>
       <h1> New Offhigher </h1>

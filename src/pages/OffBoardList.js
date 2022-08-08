@@ -43,6 +43,12 @@ const OffBoardList = () => {
       urgency: 3,
       seleced: false,
     },
+    {
+      id: 7,
+      name: "Erlamier Greg",
+      urgency: 1,
+      selected: false,
+    },
   ]);
 
   //Set offBoardNames selected to true based on id, false otherwise.
@@ -61,18 +67,13 @@ const OffBoardList = () => {
   }
 
   return (
-    <motion.div
-      className={"OffBoardList"}
-      inital={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-    >
+    <>
       <SideBar
         offBoardNames={offBoardNames}
         selectOffBoard={selectOffboardID}
       />
       <InfoContainer offBoardNames={offBoardNames} />
-    </motion.div>
+    </>
   );
 };
 

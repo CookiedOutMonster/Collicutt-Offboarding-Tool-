@@ -10,36 +10,35 @@ const SecondHalf = ({ setPageNumber, newOffBoard, defCon }) => {
     let selectedDefCon;
     switch (number) {
       case "1":
-        selectedDefCon = defCon.defCon1;
+        selectedDefCon = defCon[0];
         break;
       case "2":
-        selectedDefCon = defCon.defCon2;
+        selectedDefCon = defCon[1];
         break;
       case "3":
-        selectedDefCon = defCon.defCon3;
+        selectedDefCon = defCon[2];
         break;
     }
+
+    //console.log(selectedDefCon);
+
     return selectedDefCon;
   }
-
-  //whichDefCon();
-
-  const ohmy = ["oh", "my", "god"];
-
-  console.log(whichDefCon());
 
   return (
     <FormStyles>
       <div>
-        <h3>Tasks: Urgency {newOffBoard.urgency} </h3>
-      </div>
-      <div>
-        <h3></h3>
+        <h3>Tasks: For Urgency {newOffBoard.urgency} </h3>
+        <ul>
+          <p> IT </p>
+          {whichDefCon().it.map((tasks) => (
+            <li> {tasks} </li>
+          ))}
+        </ul>
       </div>
       <div>
         <button onClick={changePage}>Prev </button>
-      </div>
-      <div>
+        <button> Add Task </button>
         <button>Submit</button>
       </div>
     </FormStyles>
