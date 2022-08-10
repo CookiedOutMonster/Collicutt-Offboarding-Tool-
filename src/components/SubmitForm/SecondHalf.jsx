@@ -1,6 +1,8 @@
 import { FormStyles } from "./Halves.styles";
+import AddTaskModal from "../Modal/AddTaskModal";
+import { useState } from "react";
 
-const SecondHalf = ({ setPageNumber, newOffBoard, defCon }) => {
+const SecondHalf = ({ setPageNumber, newOffBoard, defCon, setShow }) => {
   function changePage() {
     setPageNumber(1);
   }
@@ -28,18 +30,26 @@ const SecondHalf = ({ setPageNumber, newOffBoard, defCon }) => {
   return (
     <FormStyles>
       <div>
-        <h3>Tasks: For Urgency {newOffBoard.urgency} </h3>
+        <h3>Urgency {newOffBoard.urgency} Tasks </h3>
         <ul>
           <p> IT </p>
           {whichDefCon().it.map((tasks) => (
             <li> {tasks} </li>
           ))}
+          <p> HR </p>
+          {whichDefCon().hr.map((tasks) => (
+            <li> {tasks} </li>
+          ))}
         </ul>
       </div>
+
+      <button onClick={setShow} type="button">
+        Add Task
+      </button>
+
       <div>
         <button onClick={changePage}>Prev </button>
-        <button> Add Task </button>
-        <button>Submit</button>
+        <button> Submit</button>
       </div>
     </FormStyles>
   );

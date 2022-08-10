@@ -27,6 +27,7 @@ const FirstHalf = ({ handleChange, newOffBoard, setPageNumber }) => {
           value={newOffBoard.urgency}
           required
         >
+          <option> Please select </option>
           <option> 1 </option>
           <option> 2 </option>
           <option> 3 </option>

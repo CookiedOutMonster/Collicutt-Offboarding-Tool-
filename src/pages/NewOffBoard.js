@@ -4,9 +4,18 @@ import SubmitForm from "../components/SubmitForm/SubmitForm";
 import { useState } from "react";
 
 const NewOffBoard = () => {
+  const [show, setShow] = useState(false);
+
+  const [addTask, setAddedTask] = useState({
+    chooseRole: "",
+    taskDescription: "",
+  });
+
   const [newOffBoard, setNewOffBoard] = useState({
     name: " ",
     urgency: " ",
+    it: [],
+    hr: [],
   });
 
   const [defCon, setDefCon] = useState([
@@ -33,8 +42,6 @@ const NewOffBoard = () => {
   ]);
 
   const handleChange = (e) => {
-    //So the issue is what I expected, you must spread accross the previous
-    //updated value into setNewOffBoard otherwise it just gets rewritten
     setNewOffBoard({ ...newOffBoard, [e.target.name]: e.target.value });
   };
 
@@ -44,6 +51,19 @@ const NewOffBoard = () => {
     setNewOffBoard({ name: "", urgency: "" });
   };
 
+  const handleChange_modal = (e) => {
+    setAddedTask({ ...addTask, [e.target.id]: e.target.value });
+  };
+
+  const handleSubmit_modal = (e) => {
+    e.preventDefault();
+    //setShow(false);
+    const whichTask = addTask.chooseRole;
+    const addedTask = addTask.taskDescription;
+
+    console.log(defCon[newOffBoard.urgency - 1]);
+  };
+
   return (
     <Container>
       <SubmitForm
@@ -51,7 +71,11 @@ const NewOffBoard = () => {
         setNewOffBoard={setNewOffBoard}
         handleChange={handleChange}
         handleSubmit={handleSubmit}
+        handleChange_modal={handleChange_modal}
+        handleSubmit_modal={handleSubmit_modal}
         defCon={defCon}
+        show={show}
+        setShow={setShow}
       />
     </Container>
   );
