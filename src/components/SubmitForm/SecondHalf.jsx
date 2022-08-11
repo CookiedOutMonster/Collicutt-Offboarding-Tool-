@@ -7,6 +7,8 @@ const SecondHalf = ({ setPageNumber, newOffBoard, defCon, setShow }) => {
     setPageNumber(1);
   }
 
+  console.log(defCon);
+
   function whichDefCon() {
     const number = newOffBoard.urgency;
     let selectedDefCon;
@@ -21,9 +23,6 @@ const SecondHalf = ({ setPageNumber, newOffBoard, defCon, setShow }) => {
         selectedDefCon = defCon[2];
         break;
     }
-
-    //console.log(selectedDefCon);
-
     return selectedDefCon;
   }
 

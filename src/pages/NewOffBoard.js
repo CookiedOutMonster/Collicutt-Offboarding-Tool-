@@ -6,6 +6,8 @@ import { useState } from "react";
 const NewOffBoard = () => {
   const [show, setShow] = useState(false);
 
+  const [pageNumber, setPageNumber] = useState(1);
+
   const [addTask, setAddedTask] = useState({
     chooseRole: "",
     taskDescription: "",
@@ -49,6 +51,7 @@ const NewOffBoard = () => {
     e.preventDefault();
     console.log(newOffBoard);
     setNewOffBoard({ name: "", urgency: "" });
+    setPageNumber(3);
   };
 
   const handleChange_modal = (e) => {
@@ -57,11 +60,13 @@ const NewOffBoard = () => {
 
   const handleSubmit_modal = (e) => {
     e.preventDefault();
-    //setShow(false);
     const whichTask = addTask.chooseRole;
     const addedTask = addTask.taskDescription;
-
-    console.log(defCon[newOffBoard.urgency - 1]);
+    const temp = [...defCon];
+    const edited = temp[parseInt(newOffBoard.urgency) - 1];
+    whichTask === "IT" ? edited.it.push(addedTask) : edited.hr.push(addedTask);
+    setDefCon(temp);
+    setShow(false);
   };
 
   return (
@@ -76,6 +81,8 @@ const NewOffBoard = () => {
         defCon={defCon}
         show={show}
         setShow={setShow}
+        pageNumber={pageNumber}
+        setPageNumber={setPageNumber}
       />
     </Container>
   );
