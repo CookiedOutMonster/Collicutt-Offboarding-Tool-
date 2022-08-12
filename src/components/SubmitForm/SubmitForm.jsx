@@ -10,6 +10,7 @@ const SubmitForm = ({
   handleSubmit,
   newOffBoard,
   defCon,
+  setDefCon,
   handleChange_modal,
   handleSubmit_modal,
   show,
@@ -33,11 +34,12 @@ const SubmitForm = ({
             setPageNumber={setPageNumber}
             newOffBoard={newOffBoard}
             defCon={defCon}
+            setDefCon={setDefCon}
             setShow={() => setShow(true)}
           />
         );
       case 3:
-        return <ThirdHalf />;
+        return <ThirdHalf setPageNumber={setPageNumber} />;
     }
   }
 

@@ -48,9 +48,19 @@ const NewOffBoard = () => {
   };
 
   const handleSubmit = (e) => {
+    //Prevent refresh
     e.preventDefault();
+    //Set tasks
+    const index = newOffBoard.urgency - 1;
+    const temp = newOffBoard;
+    temp.it = defCon[index].it;
+    temp.hr = defCon[index].hr;
+    setNewOffBoard(temp);
+    //POST to server
     console.log(newOffBoard);
-    setNewOffBoard({ name: "", urgency: "" });
+    //Reset state
+    setNewOffBoard({ name: "", urgency: "", it: [], hr: [] });
+    //Change to page 3
     setPageNumber(3);
   };
 
@@ -79,6 +89,7 @@ const NewOffBoard = () => {
         handleChange_modal={handleChange_modal}
         handleSubmit_modal={handleSubmit_modal}
         defCon={defCon}
+        setDefCon={setDefCon}
         show={show}
         setShow={setShow}
         pageNumber={pageNumber}

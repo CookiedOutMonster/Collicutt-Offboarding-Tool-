@@ -2,12 +2,16 @@ import { FormStyles } from "./Halves.styles";
 import AddTaskModal from "../Modal/AddTaskModal";
 import { useState } from "react";
 
-const SecondHalf = ({ setPageNumber, newOffBoard, defCon, setShow }) => {
+const SecondHalf = ({
+  setPageNumber,
+  newOffBoard,
+  defCon,
+  setDefCon,
+  setShow,
+}) => {
   function changePage() {
     setPageNumber(1);
   }
-
-  console.log(defCon);
 
   function whichDefCon() {
     const number = newOffBoard.urgency;
@@ -26,18 +30,35 @@ const SecondHalf = ({ setPageNumber, newOffBoard, defCon, setShow }) => {
     return selectedDefCon;
   }
 
+  function handleDelete(taskType, tasks) {
+    const temp = [...defCon];
+    const edited = temp[parseInt(newOffBoard.urgency) - 1];
+    let index;
+    switch (taskType) {
+      case "it":
+        index = edited.it.indexOf(tasks);
+        edited.it.splice(index, 1);
+        break;
+      case "hr":
+        index = edited.hr.indexOf(tasks);
+        edited.hr.splice(index, 1);
+        break;
+    }
+    setDefCon(temp);
+  }
+
   return (
     <FormStyles>
       <div>
-        <h3>Urgency {newOffBoard.urgency} Tasks </h3>
+        <h3>Urgency: {newOffBoard.urgency} Tasks </h3>
         <ul>
           <p> IT </p>
           {whichDefCon().it.map((tasks) => (
-            <li> {tasks} </li>
+            <li onClick={() => handleDelete("it", tasks)}> {tasks} </li>
           ))}
           <p> HR </p>
           {whichDefCon().hr.map((tasks) => (
-            <li> {tasks} </li>
+            <li onClick={() => handleDelete("hr", tasks)}> {tasks} </li>
           ))}
         </ul>
       </div>
