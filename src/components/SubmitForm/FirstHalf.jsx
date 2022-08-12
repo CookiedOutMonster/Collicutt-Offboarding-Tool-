@@ -1,5 +1,5 @@
 import React from "react";
-import { FormStyles } from "./Halves.styles";
+import { FormStyles, Items } from "./Halves.styles";
 
 const FirstHalf = ({ handleChange, newOffBoard, setPageNumber }) => {
   let printError = false;
@@ -9,7 +9,7 @@ const FirstHalf = ({ handleChange, newOffBoard, setPageNumber }) => {
 
   return (
     <FormStyles>
-      <div>
+      <Items className={"height-33"}>
         <label>Name:</label>
         <input
           type="text"
@@ -18,8 +18,8 @@ const FirstHalf = ({ handleChange, newOffBoard, setPageNumber }) => {
           value={newOffBoard.name}
           required
         />
-      </div>
-      <div>
+      </Items>
+      <Items className={"height-33"}>
         <label>Urgency:</label>
         <select
           name="urgency"
@@ -32,10 +32,12 @@ const FirstHalf = ({ handleChange, newOffBoard, setPageNumber }) => {
           <option> 2 </option>
           <option> 3 </option>
         </select>
-      </div>
-      <div>
-        <button onClick={changePage}>Next</button>
-      </div>
+      </Items>
+      <Items className={"height-33"}>
+        <button onClick={changePage} className={"width-50 buttonStyle"}>
+          Next
+        </button>
+      </Items>
     </FormStyles>
   );
 };

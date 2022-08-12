@@ -1,4 +1,4 @@
-import { Container, OffBoardForm } from "./SubmitForm.styles";
+import { Container, HeaderFooter, Body, Form } from "./SubmitForm.styles";
 import FirstHalf from "./FirstHalf";
 import SecondHalf from "./SecondHalf";
 import ThirdHalf from "./ThirdHalf";
@@ -18,7 +18,9 @@ const SubmitForm = ({
   pageNumber,
   setPageNumber,
 }) => {
+  //Page state handler/render
   function selectPage() {
+    //render page based on selected pageNumber
     switch (pageNumber) {
       case 1:
         return (
@@ -45,38 +47,21 @@ const SubmitForm = ({
 
   return (
     <Container>
-      <h1> New Offhigher </h1>
-      <form onSubmit={handleSubmit}>
-        <div>{selectPage()}</div>
-      </form>
-      <AddTaskModal
-        show={show}
-        onClose={() => setShow(false)}
-        handleChange_modal={handleChange_modal}
-        handleSubmit_modal={handleSubmit_modal}
-      />
+      <HeaderFooter>
+        <h1> New Offhigher </h1>
+      </HeaderFooter>
+      <Body>
+        <Form onSubmit={handleSubmit}>{selectPage()}</Form>
+        <AddTaskModal
+          show={show}
+          onClose={() => setShow(false)}
+          handleChange_modal={handleChange_modal}
+          handleSubmit_modal={handleSubmit_modal}
+        />
+      </Body>
+      <HeaderFooter></HeaderFooter>
     </Container>
   );
 };
 
 export default SubmitForm;
-
-/*
-{
-          
-          
-          pageNumber === 1 ? (
-            <FirstHalf
-              handleChange={handleChange}
-              newOffBoard={newOffBoard}
-              setPageNumber={setPageNumber}
-            />
-          ) : (
-            <SecondHalf
-              setPageNumber={setPageNumber}
-              newOffBoard={newOffBoard}
-              defCon={defCon}
-              setShow={() => setShow(true)}
-            />
-          )}
-*/

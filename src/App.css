@@ -54,3 +54,33 @@
     color: white; 
 }
 
+.height-50{
+    height:70%;
+    border: 2px solid black;
+}
+
+.height-33{
+    height: 33%;
+}
+
+.height-25{
+   
+    height:15%;
+}
+
+.scrollable{ 
+    overflow-y:scroll;
+}
+
+.width-50{
+    width:50%;
+}
+
+.buttonStyle{
+background-color: var(--color_selected);
+  color: var(--color_primary);
+  border: none;
+  width: 50%; 
+  height: 30%;
+
+}

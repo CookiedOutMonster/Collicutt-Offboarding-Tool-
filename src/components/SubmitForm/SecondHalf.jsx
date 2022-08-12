@@ -1,4 +1,9 @@
-import { FormStyles } from "./Halves.styles";
+import {
+  FormStyles,
+  Items,
+  SquareButton,
+  ButtonContainer,
+} from "./Halves.styles";
 import AddTaskModal from "../Modal/AddTaskModal";
 import { useState } from "react";
 
@@ -49,8 +54,10 @@ const SecondHalf = ({
 
   return (
     <FormStyles>
-      <div>
+      <Items className={"height-25"}>
         <h3>Urgency: {newOffBoard.urgency} Tasks </h3>
+      </Items>
+      <Items className={"height-50 scrollable"}>
         <ul>
           <p> IT </p>
           {whichDefCon().it.map((tasks) => (
@@ -61,16 +68,14 @@ const SecondHalf = ({
             <li onClick={() => handleDelete("hr", tasks)}> {tasks} </li>
           ))}
         </ul>
-      </div>
-
-      <button onClick={setShow} type="button">
-        Add Task
-      </button>
-
-      <div>
-        <button onClick={changePage}>Prev </button>
-        <button> Submit</button>
-      </div>
+      </Items>
+      <ButtonContainer className={"height-25"}>
+        <SquareButton onClick={changePage}>Previous</SquareButton>
+        <SquareButton onClick={setShow} type="button">
+          Add Task
+        </SquareButton>
+        <SquareButton> Submit</SquareButton>
+      </ButtonContainer>
     </FormStyles>
   );
 };

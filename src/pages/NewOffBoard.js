@@ -4,6 +4,7 @@ import SubmitForm from "../components/SubmitForm/SubmitForm";
 import { useState } from "react";
 
 const NewOffBoard = () => {
+  //control modal
   const [show, setShow] = useState(false);
 
   const [pageNumber, setPageNumber] = useState(1);
@@ -69,13 +70,18 @@ const NewOffBoard = () => {
   };
 
   const handleSubmit_modal = (e) => {
+    //Prevent refresh
     e.preventDefault();
+    //Grab task
     const whichTask = addTask.chooseRole;
     const addedTask = addTask.taskDescription;
+    //Edit state
     const temp = [...defCon];
     const edited = temp[parseInt(newOffBoard.urgency) - 1];
+    //Set state based on added task
     whichTask === "IT" ? edited.it.push(addedTask) : edited.hr.push(addedTask);
     setDefCon(temp);
+    //Close the modal
     setShow(false);
   };
 
@@ -108,7 +114,4 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-
-  div {
-  }
 `;
